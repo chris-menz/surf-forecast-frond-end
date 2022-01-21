@@ -4,6 +4,7 @@
 
 <main>
 	<Nav />
+	<h1>Hello</h1>
 </main>
 
 <style>
@@ -19,4 +20,7 @@
         transition: background-color 0.3s
     }
 
+	h1 {
+		font-size: 10em;
+	}
 </style>
