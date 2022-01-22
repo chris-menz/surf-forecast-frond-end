@@ -99,7 +99,7 @@
     }
 
     button {
-        background-color: indigo;
+        background-color: rgb(100, 0, 172);
         color: white;
         padding: 0.5em;
         min-height: 5vh;

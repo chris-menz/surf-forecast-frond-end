@@ -12,7 +12,7 @@ import { onMount } from "svelte";
     <div class="card">
 		<div class="header">Weather</div>
 		<!-- <div class="weather"></div> -->
-		<div class="temp">{weather.main.temp}°f</div>
+		<div class="temp">{weather.main.temp.toFixed(0)}°f</div>
 	</div>
 </main>
 

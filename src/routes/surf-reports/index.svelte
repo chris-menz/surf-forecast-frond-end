@@ -62,6 +62,8 @@
 		wwo_data = tides_response.data.data.weather;
 
 		time_zone_offset = +lng > -100 ? 5 : 8;
+
+		console.log(wwo_data);
 		
 		const d = new Date();
 		hour = d.getUTCHours();
@@ -148,7 +150,7 @@
 								<Weather {weather} />
 							</div>
 							<div class="grid-item water-temp">
-								<Water {conditions} {hour}/>
+								<Water {wwo_data} {hour} {time_zone_offset}/>
 							</div>
 						</div>
 					{/if}
@@ -161,10 +163,15 @@
 						<DailyForecast days_ahead=0 {conditions} {time_zone_offset} {wwo_data}/>
 						<span class="divider"></span>
 						<DailyForecast days_ahead=1 {conditions} {time_zone_offset} {wwo_data}/>
+						<span class="divider"></span>
 						<DailyForecast days_ahead=2 {conditions} {time_zone_offset} {wwo_data}/>
+						<span class="divider"></span>
 						<DailyForecast days_ahead=3 {conditions} {time_zone_offset} {wwo_data}/>
+						<span class="divider"></span>
 						<DailyForecast days_ahead=4 {conditions} {time_zone_offset} {wwo_data}/>
+						<span class="divider"></span>
 						<DailyForecast days_ahead=5 {conditions} {time_zone_offset} {wwo_data}/>
+						<span class="divider"></span>
 						<DailyForecast days_ahead=6 {conditions} {time_zone_offset} {wwo_data}/>
 					</div>
 				{/if}
@@ -260,7 +267,7 @@
 	}
 
 	.search-button {
-        background-color: indigo;
+        background-color: rgb(100, 0, 172);
         color: white;
         padding: 0.5em;
         min-height: 5vh;
@@ -298,24 +305,18 @@
 		text-align: center;
 		background-color: #313131;
 		padding: 0.5em;
+		margin-bottom: 0.4em;
 	}
 
 	.forecast-comps-container {
 		display: flex;
 		flex-direction: row;
-		max-width: 20vw;
+		max-width: 23vw;
 		overflow-y: scroll;
-		min-height: 400px;
-	}
-
-	.live-conditions-header {
-		margin-bottom: 0.4em;
 	}
 
 	.divider {
-		border-left: 3px solid grey;
-		margin-top: 1em;
-		height: 232px;
+		border-left: 2px solid grey;
 	}
 
 	.loading {

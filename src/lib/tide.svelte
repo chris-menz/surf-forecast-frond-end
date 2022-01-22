@@ -9,7 +9,7 @@
 	onMount(() => {
 		for(let i = 0; i < curr_tide_data.tide_data.length; ++i){
 			const tide = curr_tide_data.tide_data[i]
-			tide_string_array[i] = `${tide.tide_type == "LOW" ? "Low" : "High"} Tide: ${(tide.tideHeight_mt * 3.281).toFixed(2)} ft, ${tide.tideTime}`;
+			tide_string_array[i] = `${tide.tide_type == "LOW" ? "Low" : "High"} Tide: ${(tide.tideHeight_mt * 3.281).toFixed(1)} ft, ${tide.tideTime}`;
 		}
 	})
 
