@@ -10,6 +10,8 @@
     let region;
     let surf_break;
 
+    let displayErrorMustSelect = false
+
     function handleRegionChange(selected) {
         surf_break_names = breaks.filter(surfBreak => surfBreak.region == selected).map(surfBreak => surfBreak.break_name); 
         has_selected_region = true
@@ -28,7 +30,7 @@
             {/each}
         </select>
 
-        <select class="break-select" bind:value={surf_break} on:change={() => dispatch('breakChange', {surf_break, region})}>
+        <select class="break-select" bind:value={surf_break}>
             <option value="" disabled selected>Select Break</option>
             {#if has_selected_region}
                 {#each surf_break_names as break_option}
@@ -36,6 +38,22 @@
                 {/each}
             {/if}
         </select>
+
+        <button type="button" on:click={() => {
+            if(surf_break && region) {
+                dispatch('breakChange', {surf_break, region});
+                displayErrorMustSelect = false;
+            }
+            else{
+                displayErrorMustSelect = true
+            }     
+        }}>
+            Get Conditions
+        </button>
+
+        {#if displayErrorMustSelect}
+            <div class="error">Must select break to search</div>
+        {/if}
     </div>
 </main>
 
@@ -74,10 +92,37 @@
         min-height: 5vh;
         width: 75%;
         text-align: center;
-        margin-bottom: 00.5em;
+        margin-bottom: 0.5em;
         padding: 0.5em;
         font-size: 1.5em;
         cursor: pointer;
+    }
+
+    button {
+        background-color: indigo;
+        color: white;
+        padding: 0.5em;
+        min-height: 5vh;
+        width: 60%;
+        text-align: center;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 5px;
+        margin: 0.5em 0 0.5em 0;
+        cursor: pointer;
+    }
+
+    button:hover, .region-select:hover, .break-select:hover {
+        outline: 1.5px solid white;
+    }
+
+    select:defined {
+        border: none;
+        outline: none;
+    }
+
+    .error {
+        color: white;
     }
     
     @media (max-width: 1100px) {

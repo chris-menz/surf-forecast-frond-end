@@ -6,7 +6,8 @@
     <div class="nav-container">
 		<nav>
 			<div class="logo">
-				WaveReport
+				<a href="/">SwellStatus</a>
+				
 			</div>
 			<a href="/" class="toggle-button">
 				<span class="bar"></span>
@@ -46,10 +47,20 @@
 		text-align: left;
 		top: 100%;
 		left: 0;
-		background-color: rgb(102, 84, 206);
+		background-color: #1c18ff;
 		width: 100vw;
 	}
 
+	a {
+		background-color: transparent;
+		text-decoration: none;
+	}
+
+	a:hover {
+		background-color: transparent;
+		text-decoration: none;
+	}
+	
 	nav:after {
 		content: '';
 		clear: both;

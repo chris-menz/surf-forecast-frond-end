@@ -19,6 +19,7 @@
 		<div class="header">Swell</div>
 		<div class="swell">{height} ft. @ {period}s<br>{_16point(+direction)} {direction}°</div>
 		<span class="arrow" bind:this={rootElement}>&#10569;</span>
+	</div>
 </main>
 
 <style>

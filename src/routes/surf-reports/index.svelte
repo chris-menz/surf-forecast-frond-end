@@ -23,6 +23,7 @@
 	let is_searching = false;
 	let has_searched = false;
 	let has_selected_region = false;
+	let displayErrorMustSelect = false;
 
 	// hour takes on current hour of day, and is passed into conditions array to get live conditions at the current hour
 	let hour: number;
@@ -64,9 +65,8 @@
 		
 		const d = new Date();
 		hour = d.getUTCHours();
-        has_searched = true;
+		has_searched = true;
 		is_searching = false;
-		region = undefined;
 	}
 </script>
 
@@ -77,7 +77,7 @@
 			<Menu on:breakChange={e => {region = e.detail.region; surf_break_name = e.detail.surf_break; handleBreakChange()}}/>
 		</div>
 	{/if}
-	
+
 	{#if is_searching}
 		<div class="loading">Loading Surf Data...</div>
 	{/if}
@@ -95,13 +95,13 @@
 				<div class="header-menu">
 
                     <select class="region-select-header" bind:value={region} on:change={() => {surf_break_names = breaks.filter(surfBreak => surfBreak.region == region).map(surfBreak => surfBreak.break_name); has_selected_region = true}}>
-						<option value="" disabled selected>Select a Region</option>
+						<option value="" disabled selected>Select Region</option>
 						{#each regions as region}
 							<option value="{region}">{region}</option>
 						{/each}
 					</select>
 					
-                    <select class="break-select-header" bind:value={surf_break_name} on:change={() => handleBreakChange()}>
+                    <select class="break-select-header" bind:value={surf_break_name}>
 						<option value="" disabled selected>Select a Break</option>
 						{#if has_selected_region}
 							{#each surf_break_names as break_option}
@@ -109,44 +109,68 @@
 							{/each}
 						{/if}
 					</select>
+
+					<button type="button" class="search-button" on:click={() => {
+						if(surf_break_name && region) {
+							handleBreakChange();
+							displayErrorMustSelect = false;
+						}
+						else{
+							displayErrorMustSelect = true
+						}     
+					}}>
+						Get Conditions
+					</button>
+			
+					{#if displayErrorMustSelect}
+						<div class="error">Must select break to search</div>
+					{/if}
 				</div>
 			</div>
 	
 			<div class="live-conditions-container">
 				<div class="live-conditions-header">Live Conditions</div>
-				<div class="live-conditions">
-					<div class="grid-item swell">
-						<Swell {conditions} {hour}/>
-					</div>
-					<div class="grid-item wind">
-						<Wind {weather}/>
-					</div>
-					<div class="grid-item tide">
-						<Tide {wwo_data} />
-					</div>
-					<div class="grid-item wave-height">
-						<Waves {conditions} {hour}/>
-					</div>
-					<div class="grid-item weather">
-						<Weather {weather} />
-					</div>
-					<div class="grid-item water-temp">
-						<Water {conditions} {hour}/>
-					</div>
-				</div>
+					{#if !is_searching}
+						<div class="live-conditions">
+							<div class="grid-item swell">
+								<Swell {conditions} {hour}/>
+							</div>
+							<div class="grid-item wind">
+								<Wind {weather}/>
+							</div>
+							<div class="grid-item tide">
+								<Tide {wwo_data} />
+							</div>
+							<div class="grid-item wave-height">
+								<Waves {conditions} {hour}/>
+							</div>
+							<div class="grid-item weather">
+								<Weather {weather} />
+							</div>
+							<div class="grid-item water-temp">
+								<Water {conditions} {hour}/>
+							</div>
+						</div>
+					{/if}
 			</div>
 
 			<div class="forecast">
 				<div class="forecast-header">Forecast</div>
-				<DailyForecast days_ahead=0 {conditions} {time_zone_offset} {wwo_data}/>
-				<DailyForecast days_ahead=1 {conditions} {time_zone_offset} {wwo_data}/>
-				<DailyForecast days_ahead=2 {conditions} {time_zone_offset} {wwo_data}/>
-				<DailyForecast days_ahead=3 {conditions} {time_zone_offset} {wwo_data}/>
-				<DailyForecast days_ahead=4 {conditions} {time_zone_offset} {wwo_data}/>
-				<DailyForecast days_ahead=5 {conditions} {time_zone_offset} {wwo_data}/>
-				<DailyForecast days_ahead=6 {conditions} {time_zone_offset} {wwo_data}/>
+				{#if !is_searching}
+					<div class="forecast-comps-container">
+						<DailyForecast days_ahead=0 {conditions} {time_zone_offset} {wwo_data}/>
+						<span class="divider"></span>
+						<DailyForecast days_ahead=1 {conditions} {time_zone_offset} {wwo_data}/>
+						<DailyForecast days_ahead=2 {conditions} {time_zone_offset} {wwo_data}/>
+						<DailyForecast days_ahead=3 {conditions} {time_zone_offset} {wwo_data}/>
+						<DailyForecast days_ahead=4 {conditions} {time_zone_offset} {wwo_data}/>
+						<DailyForecast days_ahead=5 {conditions} {time_zone_offset} {wwo_data}/>
+						<DailyForecast days_ahead=6 {conditions} {time_zone_offset} {wwo_data}/>
+					</div>
+				{/if}
 			</div>
 		</div>
+		
 	{/if}
 </main>
 
@@ -226,7 +250,40 @@
         font-size: 1.5em;
         text-align: center;
 		margin-top: 0.5em;
+		border: none;
+		border-radius: 5px;
 		cursor: pointer;
+    }
+
+	.break-select-header {
+		margin-bottom: 1em;
+	}
+
+	.search-button {
+        background-color: indigo;
+        color: white;
+        padding: 0.5em;
+        min-height: 5vh;
+        width: 75%;
+        text-align: center;
+        font-size: 1.5em;
+        border: none;
+        border-radius: 5px;
+        margin: 0 0 0.5em 0;
+        cursor: pointer;
+    }
+
+	.search-button:hover, .region-select-header:hover, .break-select-header:hover {
+        outline: 1.5px solid white;
+    }
+
+	.error {
+        color: white;
+    }
+
+	select:defined {
+        border: none;
+        outline: none;
     }
 
 	/* forecast styles */
@@ -243,15 +300,29 @@
 		padding: 0.5em;
 	}
 
+	.forecast-comps-container {
+		display: flex;
+		flex-direction: row;
+		max-width: 20vw;
+		overflow-y: scroll;
+		min-height: 400px;
+	}
+
 	.live-conditions-header {
 		margin-bottom: 0.4em;
+	}
+
+	.divider {
+		border-left: 3px solid grey;
+		margin-top: 1em;
+		height: 232px;
 	}
 
 	.loading {
 		font-size: 2em;
 		color: white;
 		text-align: center;
-		margin: 6em auto;
+		margin: 8em auto;
 	}
 
 	@media (max-width: 500px) {
@@ -300,6 +371,10 @@
 
 		.forecast {
 			margin: auto;
+		}
+
+		.forecast-comps-container {
+			max-width: 90vw;
 		}
 	}
 

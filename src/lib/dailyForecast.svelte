@@ -1,6 +1,8 @@
 <script>
 	import { slide } from "svelte/transition";
 	import { onMount } from "svelte";
+	import {_16point} from "$lib/helpers/_16point"
+import Tide from "./tide.svelte";
 
 	export let conditions;
 	export let wwo_data;
@@ -41,6 +43,8 @@
 				tides_data = wwo_data[i].tides[0].tide_data;
 			}
 		}
+
+		console.log(tides_data)
 	})
 	
 
@@ -55,22 +59,22 @@
 		<div class="forecast-data">
 			<table>
 				<tr>
-					<th>Time</th>
+					<th></th>
 					<th>Swell</th>
 					<th>Wind</th>
 					<th>Weather</th>
 				</tr>
 				<tr>	
 					<td>AM</td>
-					<td>{conditions[9 + hours_ahead + time_zone_offset].wave_height} ft. @ {conditions[9 + hours_ahead + time_zone_offset].wave_period}s<br>{conditions[9 + hours_ahead + time_zone_offset].wave_direction}</td>
-					<td>{conditions[9 + hours_ahead + time_zone_offset].wind_speed} kts<br>{conditions[9 + hours_ahead + time_zone_offset].wind_direction}</td>
-					<td>74 Degrees, Sunny</td>
+					<td>{conditions[9 + hours_ahead + time_zone_offset].wave_height} ft. @ {conditions[9 + hours_ahead + time_zone_offset].wave_period}s<br>{_16point(conditions[9 + hours_ahead + time_zone_offset].wave_direction)}</td>
+					<td>{conditions[9 + hours_ahead + time_zone_offset].wind_speed.toFixed(0)}kts<br>{_16point(conditions[9 + hours_ahead + time_zone_offset].wind_direction)}</td>
+					<td>74 Degrees<br>Sunny</td>
 				</tr>
 				<tr>	
 					<td>PM</td>
-					<td>{conditions[13 + hours_ahead + time_zone_offset].wave_height} ft. @ {conditions[13 + hours_ahead + time_zone_offset].wave_period}s<br>{conditions[13 + hours_ahead + time_zone_offset].wave_direction}</td>
-					<td>{conditions[13 + hours_ahead + time_zone_offset].wind_speed} kts<br>{conditions[13 + hours_ahead + time_zone_offset].wind_direction}</td>
-					<td>74 Degrees, Sunny</td>
+					<td>{conditions[13 + hours_ahead + time_zone_offset].wave_height} ft. @ {conditions[13 + hours_ahead + time_zone_offset].wave_period}s<br>{_16point(conditions[13 + hours_ahead + time_zone_offset].wave_direction)}</td>
+					<td>{conditions[13 + hours_ahead + time_zone_offset].wind_speed.toFixed(0)}kts<br>{_16point(conditions[13 + hours_ahead + time_zone_offset].wind_direction)}</td>
+					<td>74 Degrees<br>Sunny</td>
 				</tr>
 			</table>
 			
@@ -89,7 +93,7 @@
 			
 			<table transition:slide>
 				<tr>
-					<th>Time</th>
+					<th></th>
 					<th>Swell</th>
 					<th>Wind</th>
 					<th>Weather</th>
@@ -146,6 +150,11 @@
 		padding: 0.5em;
 	}
 
+	.small-table {
+		height: 232px;
+		width: 260px;
+	}
+	
 	.small-table table{
 		border-top: 2px solid grey;
 		/* border-bottom: 2px solid grey; */
@@ -158,7 +167,7 @@
 
 	table {
 		margin: auto;
-		padding: 0.25em 0;
+		padding: 0.5em 0;
 	}
 
 	.date {
@@ -171,11 +180,13 @@
 	}
 
 	.expand-button {
-		margin: 0.5em 0;
+		margin: 1em 0;
+		padding: 0.5em;
 	}
 
 	.tides {
 		background-color: #313131;
+		margin-top: 4em;
 	}
 	
 </style>

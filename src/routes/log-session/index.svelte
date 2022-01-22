@@ -12,6 +12,8 @@
     let isDisabled = true;
     $: isDisabled = !(surf_break_selected && region && date && time);
 
+    let displayErrorBtnDisabled = false;
+
     // when true, conditions will display and user will be able to add session
     let has_got_conditions = false;
 
@@ -148,76 +150,88 @@
     <div class="container">
         <div class="log-new-session-container">
             <div class="log-session-header header">Log a Session</div>
-            <div class="new-session-form">
-                <div class="menus-container">
-                    <select class="date-select" bind:value={date}>
-                        <option value="" disabled selected>Select Date</option>
-                        {#each last7 as date_option}
-                            <option value={date_option}>{date_option.toDateString()}</option>
-                        {/each}
-                    </select>
-                    <select class="time-select" bind:value={time}>
-                        <option value="" disabled selected>Select Time</option>
-                        {#each time_options as time_option}
-                            <option value={time_option}>{time_option}</option>
-                        {/each}
-                    </select>
-                    <select class="region-select" bind:value={region} on:change={() => handleRegionChange(region)}>
-                        <option value="" disabled selected>Select Region</option>
-                        {#each regions as region}
-                            <option value="{region}">{region}</option>
-                        {/each}
-                    </select>
-                    <select class="break-select" bind:value={surf_break_selected}>
-                        <option value="" disabled selected>Select Break</option>
-                        {#if has_selected_region}
-                            {#each surf_break_names as break_option}
-                                <option value="{break_option}">{break_option}</option>
-                            {/each}
+                <div class="new-session-form">
+                    <div class="menus-container">
+                        <div class="select-container">
+                            <select class="date-select" bind:value={date}>
+                                <option value="" disabled selected>Select Date</option>
+                                {#each last7 as date_option}
+                                    <option value={date_option}>{date_option.toDateString()}</option>
+                                {/each}
+                            </select>
+                            <select class="region-select" bind:value={region} on:change={() => handleRegionChange(region)}>
+                                <option value="" disabled selected>Select Region</option>
+                                {#each regions as region}
+                                    <option value="{region}">{region}</option>
+                                {/each}
+                            </select>
+                            <select class="time-select" bind:value={time}>
+                                <option value="" disabled selected>Select Time</option>
+                                {#each time_options as time_option}
+                                    <option value={time_option}>{time_option}</option>
+                                {/each}
+                            </select> 
+                            <select class="break-select" bind:value={surf_break_selected}>
+                                <option value="" disabled selected>Select Break</option>
+                                {#if has_selected_region}
+                                    {#each surf_break_names as break_option}
+                                        <option value="{break_option}">{break_option}</option>
+                                    {/each}
+                                {/if}
+                            </select>
+                        </div>
+                        <button type="button" class="get-conditions-btn" on:click={() => {
+                            if(isDisabled){
+                                displayErrorBtnDisabled = true;
+                                console.log(displayErrorBtnDisabled);
+                            }
+                            else {
+                                getPastConditions(date, time);
+                                displayErrorBtnDisabled = false;
+                            }   
+                        }}>
+                            Get Conditions
+                        </button>
+                        {#if displayErrorBtnDisabled}
+                            <div class="btn-disabled-error">Must select all options to get conditions</div>
                         {/if}
-                    </select>
-                    <button type="button" class="get-conditions-btn" disabled = {isDisabled} on:click={() => {getPastConditions(date, time)}}>
-                        Get Conditions
-                    </button>
-                </div>
-                {#if has_got_conditions}
-                    <div class="session-info-container">
-                        <div class="session-info">
-                            Swell: {conditions.swell_height} ft. @ {conditions.swell_period}s, {conditions.swell_direction}
-                        </div>
-                        <div class="session-info">
-                            Wind: {conditions.wind_speed}kts {conditions.wind_direction}
-                        </div>
-                        <div class="session-info">
-                            Tide Height: {conditions.tide_height} ft.
-                        </div>
-                        <div class="session-info">
-                            Session Description    
-                        </div>
-                        <div class="session-info">
-                            <input type="text" class="description-input" bind:value={description}>
-                        </div>
-                        <div>
-                            <button class="add-session-btn" on:click={() => addSurfSession()}>
-                            Add Session
-                            </button>
-                        </div>
-                    </div>   
-                {/if}
+                    </div>
+                    {#if has_got_conditions}
+                        <div class="session-info-container">
+                            <div class="session-info swell">
+                                Swell: {conditions.swell_height} ft. @ {conditions.swell_period}s, {conditions.swell_direction}
+                            </div>
+                            <div class="session-info wind">
+                                Wind: {conditions.wind_speed}kts {conditions.wind_direction}
+                            </div>
+                            <div class="session-info tide">
+                                Tide Height: {conditions.tide_height} ft.
+                            </div>
+                            <div class="session-info description-input-wrapper">
+                                <textarea type="text" class="description-input" placeholder="Add a description" cols="30" rows="10" bind:value={description}></textarea>
+                            </div>
+                            <div>
+                                <button class="add-session-btn" on:click={() => addSurfSession()}>
+                                Add Session
+                                </button>
+                            </div>
+                        </div>   
+                    {/if}
                 </div>
             </div>
         <div class="my-sessions-container">
             <div class="my-sessions-header header">My Sessions</div>
             <div class="sessions-container">
                 {#each surf_sessions as surf_session}
-                    <div>{surf_session.session_description}</div>
-                    <div>{surf_session.date}</div>
-                    <div>{surf_session.time}</div>
-                    <div>{surf_session.swell_height}</div>
-                    <div>{surf_session.wind_direction}</div>
-                    <div>{surf_session.tide_height}</div>
-
-                    <button on:click={() => deleteSurfSession(surf_session._id)}>Delete</button>
+                    <div class="surf-session-container">
+                        <div>{surf_session.surf_spot}, {surf_session.spot_region}</div>
+                        <div>{surf_session.time}, {surf_session.date}</div>
+                        <div>Swell: {surf_session.swell_height} ft. @ {surf_session.swell_period} s, {surf_session.swell_direction}</div>
+                        <div>Wind: {surf_session.wind_speed} {surf_session.wind_speed == 1 ? "kt" : "kts"}, {surf_session.wind_direction}</div>
+                        <div>Tide: {surf_session.tide_height} ft.</div>
+                        <div>{surf_session.session_description}</div>
+                        <button on:click={() => deleteSurfSession(surf_session._id)}>Delete</button>
+                    </div>  
                 {/each}
             </div>
         </div>
@@ -266,7 +280,7 @@
     }
 
     .new-session-form {
-        width: 600px;
+        width: 475px;
     }
 
     .menus-container {
@@ -276,15 +290,16 @@
         flex-direction: column;
     }
 
-    .menus-container select {
+    .select-container {
         display: grid;
-        grid-template-columns: (1fr, 2);
-        grid-template-rows: (1fr, 2);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 230px);
+        margin-bottom: 0.4em;
     }
 
     select {
         font-size: 1.3em;
-        max-width: 40%;
+        max-width: 90%;
         margin-bottom: 0.5em;
         background-color: #1b1b1b;
         border: none;
@@ -298,31 +313,62 @@
         outline: none;
     }
 
+    button:hover, select:hover {
+        outline: 1.5px solid white;
+    }
+
     .session-info-container {
         background-color: #313131;
-        padding: 1em;
+        padding: 0.5em 1em 1em 1em;
         margin-top: 1em;
         color: white;
     }
 
     .session-info {
         margin-bottom: 0.5em;
+        font-size: 1.5em;
     }
 
     .description-input {
-        width: 90%;
-        height: 40px;
+        width: 100%;
+        padding: 0.4em;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 0.7em;
+        resize: none;
     }
 
     .get-conditions-btn, .add-session-btn {
         background-color: rgb(102, 84, 206);
         font-family: sans-serif;
-        font-size: 1em;
+        font-size: 1.3em;
         color: white;
-        max-width: 35%;
+        max-width: 40%;
         padding: 0.5em;
         border-radius: 5px;
         border: none;
         outline: none;
+        cursor: pointer;
+    }
+
+    .btn-disabled-error {
+        color: red;
+        padding-top: 5px;
+    }
+
+    .surf-session-container {
+        background-color: #313131;
+        color: #f0f0f0;
+        padding: 0.5em 1em;
+        width: 80%;
+        line-height: 1.5em;
+        margin-bottom: 1em;
+        border-radius: 6px;
+    }
+
+    .sessions-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
     }
 </style>
