@@ -8,7 +8,7 @@ export function conditionsParser(response) {
       swell_height: (conditions_data[i].swellHeight.noaa * 3.281).toFixed(1),
       swell_period: conditions_data[i].swellPeriod.noaa.toFixed(0),
       swell_direction: conditions_data[i].swellDirection.noaa,
-      wind_speed: conditions_data[i].windSpeed.sg,
+      wind_speed: conditions_data[i].windSpeed.sg * 1.98,
       wind_direction: conditions_data[i].windDirection.sg,
       water_temperature: conditions_data[i].waterTemperature.noaa,
       wave_height: (conditions_data[i].waveHeight.noaa * 3.281).toFixed(1),

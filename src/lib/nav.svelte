@@ -1,21 +1,28 @@
 <script>
-
+	let open = false;
 </script>
 
 <main>
-    <div class="nav-container">
-		<nav>
-			<div class="logo">
-				<a href="/">SwellStatus</a>
-				
-			</div>
-			<ul class="nav-list">
-				<li><a href="/surf-reports">Surf Reports</a></li>
-				<li><a href="/log-session">Sessions</a></li>
-				<li><a href="/new-to-surfing">New to Surfing?</a></li>
-			</ul>
-		</nav>
-	</div>
+	<nav class="nav-container">
+		<div class="logo">
+			<a href="/">SwellStatus</a>	
+		</div>
+		<div href="" class="toggle-button" on:click={()=> open = !open} >
+			<span class="bar"></span>
+			<span class="bar"></span>
+			<span class="bar"></span>
+		</div>
+		<ul class="nav-list">
+			<li><a href="/surf-reports">Surf Reports</a></li>
+			<li><a href="/log-session">Sessions</a></li>
+			<li><a href="/new-to-surfing">New to Surfing?</a></li>
+		</ul>
+		<ul class="burger-nav-list" style="display: {open ? "flex" : "none"}">
+			<li><a href="/surf-reports">Surf Reports</a></li>
+			<li><a href="/log-session">Sessions</a></li>
+			<li><a href="/new-to-surfing">New to Surfing?</a></li>
+		</ul>
+	</nav>
 </main>
 
 <style>
@@ -27,59 +34,55 @@
 
 	.nav-container {
 		font-family: sans-serif;
-		text-align: center;
 		position: fixed;
-		width: 100vw;
+		width: 100%;
 		top: 0;
 		left: 0;
 		z-index: 999;
-	}
-	
-	nav {
-		position: absolute;
-		text-align: left;
-		top: 100%;
-		left: 0;
 		background-color: rgb(100, 0, 172);
-		width: 100vw;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 	}
-
 	
-	
-	nav:after {
-		content: '';
-		clear: both;
-		display: table;
-	}
 
-	nav ul {
-		float: right;
+	.nav-list {
 		list-style: none;
-		margin-right: 40px;
 		position: relative;
-	}
-
-	nav ul li {
-		float: left;
-		/* display: inline-block; */
-		margin: 0 5px;
+		display: flex;
+		margin-right: 10px;
 	}
 
 	nav ul li a {
-		line-height: 70px;
-		font-size: 18px;
-		padding: 8px 15px;
+		font-size: 1.2em;
+		padding: 1rem;
+		display: block;
 	}
 
-	ul li a:link {
-		color: white;
-		background-color: transparent;
-		text-decoration: none;
-	}
+
 
 	a {
 		background-color: transparent;
 		text-decoration: none;
+	}
+
+	.toggle-button {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		display: none;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 40px;
+		height: 28px;
+		cursor: pointer;
+	}
+
+	.bar {
+		background-color: white;
+		border-radius: 10px;
+		width: 100%;
+		height: 3px;
 	}
 
 
@@ -89,27 +92,44 @@
 		text-decoration: none;
 	}
 
-	.nav-list a:hover {
-		outline: 1.5px solid white;
-		border-radius: 5px;
-		background-color: transparent;
+	.nav-list a:hover, .burger-nav-list a:hover {
+		/* outline: 1.5px solid white; */
+		/* border-radius: 5px; */
+		background-color: rgb(71, 0, 138);
 		text-decoration: none;
-		/* text-decoration: underline; */
 	}
 	
 	.logo {
 		color: rgb(235, 235, 235);
 		font-size: 2.5em;
-		position: absolute;
-		top: 10px;
-		left: 10px;
+		margin: 00.5rem;
 	}
 
-	@media (max-width: 415px) {
+	@media (max-width: 700px) {
 
-		nav ul {
+		.toggle-button {
+			display: flex;
+		}
+
+		.nav-list {
 			display: none;
 		}
+
+		.nav-container {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.burger-nav-list {
+			flex-direction: column;
+			width: 100%;
+			list-style: none;
+		}
+
+		.nav-list li {
+			text-align: center;
+		}
+
 	}
 	
 </style>

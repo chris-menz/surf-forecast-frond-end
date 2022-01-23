@@ -12,7 +12,7 @@
 	import Weather from "$lib/weather.svelte"
 	import Menu from "$lib/menu.svelte";
 	
-	const endpoint = 'http://localhost:8000/api'
+	const endpoint = import.meta.env.VITE_API_URL + '/api'
 
 	// api responses
 	let conditions: Object[];
@@ -53,7 +53,8 @@
 		const latlngString = `?lat=${lat}&lng=${lng}`;
 
 		const conditions_response = await axios.get(`${endpoint}/conditions${latlngString}`);
-		conditions = conditionsParser(conditions_response)
+		conditions = conditionsParser(conditions_response);
+		console.log(conditions);
 		
 		const weather_response = await axios.get(`${endpoint}/weather${latlngString}`);
 		weather = weather_response.data;
@@ -62,8 +63,6 @@
 		wwo_data = tides_response.data.data.weather;
 
 		time_zone_offset = +lng > -100 ? 5 : 8;
-
-		console.log(wwo_data);
 		
 		const d = new Date();
 		hour = d.getUTCHours();
@@ -158,25 +157,25 @@
 
 			<div class="forecast">
 				<div class="forecast-header">Forecast</div>
-				{#if !is_searching}
-					<div class="forecast-comps-container">
-						<DailyForecast days_ahead=0 {conditions} {time_zone_offset} {wwo_data}/>
-						<span class="divider"></span>
-						<DailyForecast days_ahead=1 {conditions} {time_zone_offset} {wwo_data}/>
-						<span class="divider"></span>
-						<DailyForecast days_ahead=2 {conditions} {time_zone_offset} {wwo_data}/>
-						<span class="divider"></span>
-						<DailyForecast days_ahead=3 {conditions} {time_zone_offset} {wwo_data}/>
-						<span class="divider"></span>
-						<DailyForecast days_ahead=4 {conditions} {time_zone_offset} {wwo_data}/>
-						<span class="divider"></span>
-						<DailyForecast days_ahead=5 {conditions} {time_zone_offset} {wwo_data}/>
-						<span class="divider"></span>
-						<DailyForecast days_ahead=6 {conditions} {time_zone_offset} {wwo_data}/>
-					</div>
-				{/if}
+					{#if !is_searching}
+						<div class="forecast-comps-container">
+							<DailyForecast days_ahead=0 {conditions} {time_zone_offset} {wwo_data}/>
+							<span class="divider"></span>
+							<DailyForecast days_ahead=1 {conditions} {time_zone_offset} {wwo_data}/>
+							<span class="divider"></span>
+							<DailyForecast days_ahead=2 {conditions} {time_zone_offset} {wwo_data}/>
+							<span class="divider"></span>
+							<DailyForecast days_ahead=3 {conditions} {time_zone_offset} {wwo_data}/>
+							<span class="divider"></span>
+							<DailyForecast days_ahead=4 {conditions} {time_zone_offset} {wwo_data}/>
+							<span class="divider"></span>
+							<DailyForecast days_ahead=5 {conditions} {time_zone_offset} {wwo_data}/>
+							<span class="divider"></span>
+							<DailyForecast days_ahead=6 {conditions} {time_zone_offset} {wwo_data}/>
+						</div>
+					{/if}
+				</div>
 			</div>
-		</div>
 		
 	{/if}
 </main>
@@ -220,7 +219,8 @@
 	/* header styles */
 	
 	.conditions-header {
-		width: 25vw;
+		min-width: 250px;
+		max-width: 300px;
 		margin-right: 1em;
 		position: relative;
 		background-color: #313131;
@@ -375,15 +375,92 @@
 		}
 
 		.forecast-comps-container {
+			margin: auto;
 			max-width: 90vw;
+			margin-bottom: 1em;
 		}
 	}
 
-	@media (max-width: 768px) {
-
+	@media (max-width: 1280px) {
+		.live-conditions {
+			grid-template-columns: repeat(3, 12em);
+			grid-template-rows: repeat(2, 13em);
+		}
 	}
 
-	@media (max-width: 960px) {
+	@media (max-width: 1150px) {
+		.live-conditions {
+			grid-template-columns: repeat(3, 11em);
+			grid-template-rows: repeat(2, 13em);
+		}
+	}
+
+
+	@media (max-width: 1040px) {
+		.live-conditions {
+			grid-template-columns: repeat(3, 9em);
+			grid-template-rows: repeat(2, 13em);
+		}
+	}
+
+	@media (max-width: 978px) {
+		.live-conditions {
+			grid-template-columns: repeat(2, 10em);
+			grid-template-rows: repeat(3, 13em);
+		}
+	}
+
+	@media (max-width: 800px) {
+
+		.conditions-container {
+			max-width: 90vw;
+			margin: 6em auto 0 auto;
+			flex-direction: column;
+		}
+
+
+		.break-name {
+			text-align: center;
+		}
+
+		.break-location {
+			text-align: center;
+		}
+		.live-conditions {
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(2, 13em);
+			margin-bottom: 1em;
+			width: 90vw;
+			margin: 0;
+		}
+
+		.conditions-container {
+			flex-direction: column;
+		}
+
+		.forecast {
+			margin: 1em 0;
+		}
+
+
+		.forecast-comps-container {
+			max-width: 90vw;
+			margin-bottom: 1em;
+		}
+
+		.conditions-header {
+			width: 90vw;
+			margin: auto;
+			padding-top: 0.5em;
+			margin-bottom: 1em;
+		}
 		
+	}
+
+	@media (max-width: 450px) {
+		.live-conditions {
+			grid-template-columns: repeat(2, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+		}
 	}
 </style>

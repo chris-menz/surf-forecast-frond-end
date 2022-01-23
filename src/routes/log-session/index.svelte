@@ -3,10 +3,10 @@
     import { _16point } from '$lib/helpers/_16point.js';
     import { onMount } from 'svelte';
     import { breaks, regions } from '$lib/helpers/breaks';
-    import axios from 'axios';
+    import axios from 'axios'
 
-    const endpoint = "http://localhost:8000/api/surf-sessions";
-    const historical_data_endpoint = "http://localhost:8000/api/historical-data";
+    const endpoint = import.meta.env.VITE_API_URL + "/api/surf-sessions";
+    const historical_data_endpoint = import.meta.env.VITE_API_URL + "/api/historical-data";
 
     // prevents user from getting conditions without inputting all parameters
     let isDisabled = true;
@@ -230,7 +230,7 @@
                         <div>Wind: {surf_session.wind_speed} {surf_session.wind_speed == 1 ? "kt" : "kts"}, {surf_session.wind_direction}</div>
                         <div>Tide: {surf_session.tide_height} ft.</div>
                         <div>{surf_session.session_description}</div>
-                        <button on:click={() => deleteSurfSession(surf_session._id)}>Delete</button>
+                        <button on:click={() => deleteSurfSession(surf_session._id)} class="delete-btn">Delete</button>
                     </div>  
                 {/each}
             </div>
@@ -267,20 +267,20 @@
     }
 
     .container {
-        margin: 6em auto;
+        margin: 6em 0;
         display: flex;
         flex-direction: row;
     }
 
     .log-new-session-container, .my-sessions-container {
-        margin: 0 6em;
+        margin: 0 3em;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
     .new-session-form {
-        width: 475px;
+        max-width: 475px;
     }
 
     .menus-container {
@@ -338,7 +338,7 @@
     }
 
     .get-conditions-btn, .add-session-btn {
-        background-color: rgb(102, 84, 206);
+        background-color: rgb(100, 0, 172);
         font-family: sans-serif;
         font-size: 1.3em;
         color: white;
@@ -362,13 +362,44 @@
         width: 80%;
         line-height: 1.5em;
         margin-bottom: 1em;
-        border-radius: 6px;
     }
 
     .sessions-container {
         display: flex;
         flex-direction: column;
         align-items: center;
-
+        max-height: 1500px;
+        overflow-x: scroll;
     }
+
+    .delete-btn {
+        background-color: rgb(100, 0, 172);
+        color: white;
+        font-family: sans-serif;
+        margin: 0.4em 0;
+        padding: 0.5em;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    @media (max-width: 1150px) {
+        .surf-session-container {
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .container {
+            flex-direction: column;
+            margin: 6em auto;
+        }
+
+        .my-sessions-container {
+            margin-top: 1.5em;
+        }
+    }
+
+
 </style>

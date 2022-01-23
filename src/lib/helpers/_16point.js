@@ -9,7 +9,7 @@ export function _16point(angle) {
    * Offset the angle by half of the degrees per direction
    * Example: in 4 direction system North (320-45) becomes (0-90)
    */
-  const offsetAngle = angle + degreePerDirection / 2;
+  const offsetAngle = +angle + degreePerDirection / 2;
 
   return offsetAngle >= 0 * degreePerDirection &&
     offsetAngle < 1 * degreePerDirection

@@ -9,19 +9,20 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.0.0",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
+    "@tsconfig/svelte": "^2.0.0",
     "svelte": "^3.44.0",
     "svelte-check": "^2.0.0",
     "svelte-preprocess": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.0.0",
-    "typescript": "^4.0.0",
     "tslib": "^2.0.0",
-    "@tsconfig/svelte": "^2.0.0"
+    "typescript": "^4.0.0"
   },
   "type": "module",
   "dependencies": {
-    "axios": "^0.24.0"
+    "axios": "^0.24.0",
+    "dotenv": "^14.2.0"
   }
 }

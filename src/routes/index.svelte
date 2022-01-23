@@ -1,5 +1,7 @@
 <script>
 	import Nav from "$lib/nav.svelte";
+	import { onMount } from 'svelte';
+	
 </script>
 
 <main>
@@ -16,7 +18,6 @@
 
 	:global(body) {
 		background-color: #1f1f1f;
-        transition: background-color 0.3s
     }
 
 </style>

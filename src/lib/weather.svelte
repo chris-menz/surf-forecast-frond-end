@@ -1,11 +1,5 @@
 <script>
-import { onMount } from "svelte";
-
-
-	export let weather;
-	onMount(() => {
-		console.log(weather)
-	})
+	export let weather;	
 </script>
 
 <main>
