@@ -86,7 +86,7 @@
 	}
 
 
-	a:visited {
+	a, a:visited {
 		color: white;
 		background-color: transparent;
 		text-decoration: none;
