@@ -138,6 +138,7 @@
     
     @media (max-width: 960px) {
         .menu {
+            margin-top: 125px;
             max-width: 60vw;
         }
 
