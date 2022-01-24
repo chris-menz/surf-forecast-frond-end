@@ -281,7 +281,7 @@
         background-color: #313131;
         display: grid;
         grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 14em);
         align-items: center;
         padding: 1em 0 1em 1em;
     }
@@ -407,7 +407,7 @@
         }
         
         .select-container {
-            width: 80vw;
+            width: 70vw;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -416,7 +416,7 @@
 
         select {
             text-align: center;
-            width: 65%;
+            width: 75%;
         }
 
         .session-info {
@@ -426,6 +426,7 @@
         .get-conditions-btn, .add-session-btn {
             font-size: 1em;
             max-width: 70%;
+            margin-top: 0.5em;
             padding: 0.5em;
         }
 

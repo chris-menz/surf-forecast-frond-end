@@ -116,6 +116,10 @@
 		color: rgb(235, 235, 235);
 	}
 
+	.burger-nav-list {
+		display: none;
+		list-style: none;
+	}
 	@media (max-width: 700px) {
 
 		.toggle-button {

@@ -66,7 +66,7 @@
     .menu {
 		/* background-color: #3B3B3B; */
         background-color: #2b2b2b;
-        margin: 200px auto 0 auto;
+        margin: 160px auto 0 auto;
         padding: 1em 0;
         display: flex;
         flex-direction: column;
@@ -142,7 +142,7 @@
     @media (max-width: 960px) {
         .menu {
             margin-top: 125px;
-            max-width: 60vw;
+            max-width: 50vw;
         }
 
         .header {
@@ -152,15 +152,16 @@
     
     @media (max-width: 700px) {
         .menu {
-            max-width: 70vw;
+            max-width: 60vw;
+            min-height: 30vw;
         }
 
         .header {
-            font-size: 1.5em;
+            font-size: 2em;
         }
 
         .break-select, .region-select {
-            font-size: 1em;
+            font-size: 1.3em;
         }
     }
 
