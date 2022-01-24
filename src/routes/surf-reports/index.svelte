@@ -229,6 +229,7 @@
 
 	.break-name {
 		font-size: 3em;
+		font-family: Georgia;
 		padding: 0.5rem 1rem;
 		font-family: Montserrat;
 	}
@@ -267,13 +268,14 @@
 	}
 
 	.search-button {
-        background-color: rgb(100, 0, 172);
-        color: white;
+        background-color: #6e38cc;
+        color: black;
         padding: 0.5em;
         min-height: 5vh;
         width: 75%;
         text-align: center;
         font-size: 1.5em;
+		font-family: verdana;
         border: none;
         border-radius: 5px;
         margin: 0 0 0.5em 0;
@@ -302,6 +304,7 @@
 
 	.forecast-header, .live-conditions-header {
 		font-size: 2.5em;
+		font-family: Georgia;
 		text-align: center;
 		background-color: #2b2b2b;
 		padding: 0.5em;

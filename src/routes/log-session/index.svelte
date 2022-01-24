@@ -227,7 +227,7 @@
                     <div class="surf-session-container">
                         <div class="session-location">{surf_session.surf_spot}, {surf_session.spot_region}</div>
                         <div class="session-date">{surf_session.time}, {surf_session.date}</div>
-                        <div>Swell: {surf_session.swell_height} ft. @ {surf_session.swell_period} s, {surf_session.swell_direction}</div>
+                        <div>Swell: {surf_session.swell_height} ft. @ {surf_session.swell_period}s, {surf_session.swell_direction}</div>
                         <div>Wind: {surf_session.wind_speed} {surf_session.wind_speed == 1 ? "kt" : "kts"}, {surf_session.wind_direction}</div>
                         <div>Tide: {surf_session.tide_height} ft.</div>
                         <div class="session-description">{surf_session.session_description}</div>
@@ -256,6 +256,7 @@
     .header {
         background-color: #313131;
         font-size: 2.5em;
+        font-family: Georgia;
         padding: 0.5em;
         margin: 0 0 0.5em 0;
         color: #f0f0f0;;
@@ -326,11 +327,11 @@
     }
 
     .get-conditions-btn, .add-session-btn {
-        background-color: rgb(100, 0, 172);
+        background-color: #6e38cc;
         text-align: center;
-        font-family: sans-serif;
+        font-family: Verdana;
         font-size: 1em;
-        color: white;
+        color: black;
         max-width: 75%;
         padding: 0.5em;
         border-radius: 5px;
@@ -361,9 +362,13 @@
     }
 
    .session-location, .session-date {
-       font-family: sans-serif;
+       font-family: Georgia;
        line-height: 1.3em;
        font-size: 1.3em;
+   }
+
+   .session-date {
+       margin-bottom: 0.3em;
    }
 
    .session-description {
@@ -373,9 +378,9 @@
    }
 
     .delete-btn {
-        background-color: rgb(100, 0, 172);
-        color: white;
-        font-family: sans-serif;
+        background-color: #6e38cc;
+        color: black;
+        font-family: Verdana;
         margin: 0.4em 0;
         padding: 0.5em;
         border-radius: 5px;

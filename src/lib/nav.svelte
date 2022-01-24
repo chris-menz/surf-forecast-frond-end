@@ -39,7 +39,7 @@
 		top: 0;
 		left: 0;
 		z-index: 999;
-		background-color: #673AB7;
+		background-color: #6e38cc;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -87,11 +87,15 @@
 	}
 
 
-	.nav-list a, .nav-list a:visited, .burger-nav-list a, .burger-nav-list a:visited, a:active {
+	.nav-list a, .nav-list a:visited, .burger-nav-list a, .burger-nav-list a:visited {
 		color: white;
 		background-color: transparent;
 		text-decoration: none;
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
+	}
+
+	a:active {
+		color: grey;
 	}
 
 
@@ -104,6 +108,7 @@
 	
 	.logo{
 		font-size: 2.5em;
+		font-family: Georgia;
 		margin: 00.5rem;
 	}
 

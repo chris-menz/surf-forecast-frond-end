@@ -188,7 +188,9 @@
 	}
 
 	th {
-		font-size: 1.2em;
+		font-size: 1em;
+		font-family: Verdana;
+		font-weight: normal;
 	}
 
 	.table {
@@ -216,6 +218,7 @@
 	.date {
 		padding: 0.5em 0;
 		font-size: 1.5em;
+		font-family: Georgia;
 	}
 
 	td {
@@ -226,8 +229,9 @@
 	.expand-button {
 		margin: 1em auto;
 		padding: 0.5em;
-		background-color: rgb(100, 0, 172);
-        color: white;
+		background-color: #6e38cc;
+        color: black;
+		font-family: verdana;
 		width: 60%;
 		text-align: center;
         font-size: 1em;

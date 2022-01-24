@@ -39,6 +39,7 @@
 
 	.header {
 		font-size: 2em;
+		font-family: Georgia;
 	}
 
 	.swell {

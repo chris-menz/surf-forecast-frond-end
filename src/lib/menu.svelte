@@ -87,11 +87,9 @@
     
     .region-select, .break-select {
         background-color: #111111;
-        color: rgb(149, 0, 255);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
-        /* color: rgb(240, 234, 234); */
+        color: rgb(240, 234, 234);
         border: none;
-        /* outline: 1px solid rgb(114, 114, 114); */
         border-radius: 5px;
         min-height: 5vh;
         width: 75%;
@@ -103,13 +101,14 @@
     }
 
     button {
-        background-color: #673AB7;
+        background-color: #6e38cc;
         color: black;
         padding: 0.5em;
         min-height: 5vh;
         width: 60%;
         text-align: center;
         font-size: 1.5em;
+        font-family: Verdana, sans-serif;
         border: none;
         border-radius: 5px;
         margin: 0.5em 0 0.5em 0;
