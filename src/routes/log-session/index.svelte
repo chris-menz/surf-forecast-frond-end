@@ -151,35 +151,34 @@
         <div class="log-new-session-container">
             <div class="log-session-header header">Log a Session</div>
                 <div class="new-session-form">
-                    <div class="menus-container">
-                        <div class="select-container">
-                            <select class="date-select" bind:value={date}>
-                                <option value="" disabled selected>Select Date</option>
-                                {#each last7 as date_option}
-                                    <option value={date_option}>{date_option.toDateString()}</option>
+                    <div class="select-container">
+                        <select class="date-select" bind:value={date}>
+                            <option value="" disabled selected>Select Date</option>
+                            {#each last7 as date_option}
+                                <option value={date_option}>{date_option.toDateString()}</option>
+                            {/each}
+                        </select>
+                        <select class="time-select" bind:value={time}>
+                            <option value="" disabled selected>Select Time</option>
+                            {#each time_options as time_option}
+                                <option value={time_option}>{time_option}</option>
+                            {/each}
+                        </select> 
+                        <select class="region-select" bind:value={region} on:change={() => handleRegionChange(region)}>
+                            <option value="" disabled selected>Select Region</option>
+                            {#each regions as region}
+                                <option value="{region}">{region}</option>
+                            {/each}
+                        </select>
+                        <select class="break-select" bind:value={surf_break_selected}>
+                            <option value="" disabled selected>Select Break</option>
+                            {#if has_selected_region}
+                                {#each surf_break_names as break_option}
+                                    <option value="{break_option}">{break_option}</option>
                                 {/each}
-                            </select>
-                            <select class="region-select" bind:value={region} on:change={() => handleRegionChange(region)}>
-                                <option value="" disabled selected>Select Region</option>
-                                {#each regions as region}
-                                    <option value="{region}">{region}</option>
-                                {/each}
-                            </select>
-                            <select class="time-select" bind:value={time}>
-                                <option value="" disabled selected>Select Time</option>
-                                {#each time_options as time_option}
-                                    <option value={time_option}>{time_option}</option>
-                                {/each}
-                            </select> 
-                            <select class="break-select" bind:value={surf_break_selected}>
-                                <option value="" disabled selected>Select Break</option>
-                                {#if has_selected_region}
-                                    {#each surf_break_names as break_option}
-                                        <option value="{break_option}">{break_option}</option>
-                                    {/each}
-                                {/if}
-                            </select>
-                        </div>
+                            {/if}
+                        </select>
+                    
                         <button type="button" class="get-conditions-btn" on:click={() => {
                             if(isDisabled){
                                 displayErrorBtnDisabled = true;
@@ -192,10 +191,12 @@
                         }}>
                             Get Conditions
                         </button>
+                    
                         {#if displayErrorBtnDisabled}
                             <div class="btn-disabled-error">Must select all options to get conditions</div>
                         {/if}
                     </div>
+                    
                     {#if has_got_conditions}
                         <div class="session-info-container">
                             <div class="session-info swell">
@@ -249,58 +250,44 @@
 
 	:global(body) {
         background-color: #1f1f1f;
-        transition: background-color 0.3s
     }
 
-    main {
-        display: flex;
-        flex-direction: row;
-    }
 
     .header {
         background-color: #313131;
+        font-size: 2.5em;
+        padding: 0.5em;
+        margin: 0 0 0.5em 0;
         color: #f0f0f0;;
-        font-size: 3em;
-        padding: 0.5em 1em;
-        margin-bottom: 0.5em;
         text-align: center;
     }
 
     .container {
-        margin: 6em 0;
+        margin: 6em 0 0 5em;
         display: flex;
         flex-direction: row;
     }
 
     .log-new-session-container, .my-sessions-container {
-        margin: 0 3em;
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 
-    .new-session-form {
-        max-width: 475px;
-    }
-
-    .menus-container {
-        background-color: #313131;
-        padding: 1em;
-        display: flex;
-        flex-direction: column;
-    }
 
     .select-container {
+        background-color: #313131;
         display: grid;
         grid-template-rows: repeat(2, 1fr);
-        grid-template-columns: repeat(2, 230px);
-        margin-bottom: 0.4em;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        padding: 1em 0 1em 1em;
     }
 
     select {
         font-size: 1.3em;
         max-width: 90%;
-        margin-bottom: 0.5em;
+        margin: 0 0 0.5em 0;
         background-color: #1b1b1b;
         border: none;
         color: white;
@@ -339,10 +326,11 @@
 
     .get-conditions-btn, .add-session-btn {
         background-color: rgb(100, 0, 172);
+        text-align: center;
         font-family: sans-serif;
-        font-size: 1.3em;
+        font-size: 1em;
         color: white;
-        max-width: 40%;
+        max-width: 60%;
         padding: 0.5em;
         border-radius: 5px;
         border: none;
@@ -359,7 +347,7 @@
         background-color: #313131;
         color: #f0f0f0;
         padding: 0.5em 1em;
-        width: 80%;
+        max-width: 70%;
         line-height: 1.5em;
         margin-bottom: 1em;
     }
@@ -384,11 +372,6 @@
         cursor: pointer;
     }
 
-    @media (max-width: 1150px) {
-        .surf-session-container {
-            width: 100%;
-        }
-    }
 
     @media (max-width: 1000px) {
         .container {
@@ -401,5 +384,37 @@
         }
     }
 
+    @media (max-width: 700px) {
+        .select-container {
+            width: 80vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1em 0;
+        }
+
+        select {
+            text-align: center;
+            width: 65%;
+        }
+
+        .session-info {
+            font-size: 1em;
+        }
+
+        .get-conditions-btn, .add-session-btn {
+            font-size: 1em;
+            max-width: 70%;
+            padding: 0.5em;
+        }
+
+        .sessions-container {
+            max-width: 90vw;
+        }
+
+        .surf-session-container {
+            max-width: 80vw;
+        }
+    }
 
 </style>
