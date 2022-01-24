@@ -149,7 +149,7 @@
     
     @media (max-width: 700px) {
         .menu {
-            max-width: 80vw;
+            max-width: 70vw;
         }
 
         .header {
@@ -161,20 +161,6 @@
         }
     }
 
-    @media (max-width: 400px) {
-        .menu {
-            max-width: 80vw;
-        }
-    }
-
-    @media (max-width: 300px) {
-        .header {
-            font-size: 1.5em;
-        }
-
-        .region-select, .break-select {
-            font-size: 1em;
-        }
-    }
+    
     
 </style>
