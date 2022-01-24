@@ -151,6 +151,14 @@
         .menu {
             max-width: 80vw;
         }
+
+        .header {
+            font-size: 1.5em;
+        }
+
+        .break-select, .region-select {
+            font-size: 1em;
+        }
     }
 
     @media (max-width: 400px) {
