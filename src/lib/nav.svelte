@@ -87,12 +87,13 @@
 	}
 
 
-	.nav-list a, .nav-list a:visited {
+	.nav-list a, .nav-list a:visited, .burger-nav-list a, .burger-nav-list a:visited, a:active {
 		color: white;
 		background-color: transparent;
 		text-decoration: none;
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
 	}
+
 
 	.nav-list a:hover, .burger-nav-list a:hover {
 		/* outline: 1.5px solid white; */
