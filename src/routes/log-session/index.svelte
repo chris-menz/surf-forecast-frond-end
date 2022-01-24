@@ -225,12 +225,12 @@
             <div class="sessions-container">
                 {#each surf_sessions as surf_session}
                     <div class="surf-session-container">
-                        <div>{surf_session.surf_spot}, {surf_session.spot_region}</div>
-                        <div>{surf_session.time}, {surf_session.date}</div>
+                        <div class="session-location">{surf_session.surf_spot}, {surf_session.spot_region}</div>
+                        <div class="session-date">{surf_session.time}, {surf_session.date}</div>
                         <div>Swell: {surf_session.swell_height} ft. @ {surf_session.swell_period} s, {surf_session.swell_direction}</div>
                         <div>Wind: {surf_session.wind_speed} {surf_session.wind_speed == 1 ? "kt" : "kts"}, {surf_session.wind_direction}</div>
                         <div>Tide: {surf_session.tide_height} ft.</div>
-                        <div>{surf_session.session_description}</div>
+                        <div class="session-description">{surf_session.session_description}</div>
                         <button on:click={() => deleteSurfSession(surf_session._id)} class="delete-btn">Delete</button>
                     </div>  
                 {/each}
@@ -263,9 +263,10 @@
     }
 
     .container {
-        margin: 6em 0 0 5em;
+        margin: 6em 0 0 0;
         display: flex;
         flex-direction: row;
+        justify-content: space-evenly;
     }
 
     .log-new-session-container, .my-sessions-container {
@@ -330,7 +331,7 @@
         font-family: sans-serif;
         font-size: 1em;
         color: white;
-        max-width: 60%;
+        max-width: 75%;
         padding: 0.5em;
         border-radius: 5px;
         border: none;
@@ -343,15 +344,6 @@
         padding-top: 5px;
     }
 
-    .surf-session-container {
-        background-color: #313131;
-        color: #f0f0f0;
-        padding: 0.5em 1em;
-        max-width: 70%;
-        line-height: 1.5em;
-        margin-bottom: 1em;
-    }
-
     .sessions-container {
         display: flex;
         flex-direction: column;
@@ -359,6 +351,26 @@
         max-height: 1500px;
         overflow-x: scroll;
     }
+    .surf-session-container {
+        background-color: #313131;
+        color: #f0f0f0;
+        padding: 0.5em 1em;
+        width: 30vw;
+        line-height: 1.5em;
+        margin-bottom: 1em;
+    }
+
+   .session-location, .session-date {
+       font-family: sans-serif;
+       line-height: 1.3em;
+       font-size: 1.3em;
+   }
+
+   .session-description {
+       margin: 0.5em 0;
+       padding: 0.5em;
+       background-color: #1b1b1b;
+   }
 
     .delete-btn {
         background-color: rgb(100, 0, 172);
@@ -385,6 +397,10 @@
     }
 
     @media (max-width: 700px) {
+        .header {
+            max-width: 80vw;
+        }
+        
         .select-container {
             width: 80vw;
             display: flex;
@@ -408,12 +424,9 @@
             padding: 0.5em;
         }
 
-        .sessions-container {
-            max-width: 90vw;
-        }
 
         .surf-session-container {
-            max-width: 80vw;
+            width: 80vw;
         }
     }
 
