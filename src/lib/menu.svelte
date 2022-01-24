@@ -165,6 +165,12 @@
         }
     }
 
+    @media (max-width: 500px) {
+        .menu {
+            max-width: 82vw;
+        }
+    }
+
     
     
 </style>
