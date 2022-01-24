@@ -249,7 +249,7 @@
 	}
 
 	:global(body) {
-        background-color: #1f1f1f;
+        background-color: #161616;
     }
 
 

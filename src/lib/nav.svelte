@@ -39,7 +39,7 @@
 		top: 0;
 		left: 0;
 		z-index: 999;
-		background-color: rgb(100, 0, 172);
+		background-color: #673AB7;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -52,6 +52,7 @@
 		display: flex;
 		margin-right: 10px;
 	}
+
 
 	nav ul li a {
 		font-size: 1.2em;
@@ -86,10 +87,11 @@
 	}
 
 
-	a, a:visited {
+	.nav-list a, .nav-list a:visited {
 		color: white;
 		background-color: transparent;
 		text-decoration: none;
+		font-family: Verdana, Geneva, Tahoma, sans-serif;
 	}
 
 	.nav-list a:hover, .burger-nav-list a:hover {
@@ -99,10 +101,13 @@
 		text-decoration: none;
 	}
 	
-	.logo {
-		color: rgb(235, 235, 235);
+	.logo{
 		font-size: 2.5em;
 		margin: 00.5rem;
+	}
+
+	.logo a, .logo a:visited {
+		color: rgb(235, 235, 235);
 	}
 
 	@media (max-width: 700px) {

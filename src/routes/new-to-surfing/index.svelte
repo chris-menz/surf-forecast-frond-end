@@ -18,6 +18,6 @@
 
 <style>
     .page-container {
-        background-color: #313131;
+        background-color: #121212;
     }
 </style>

@@ -192,7 +192,7 @@
 	}
 
 	.table {
-		background-color: #313131;
+		background-color: #2b2b2b;
 	}
 
 	.small-table {
@@ -238,10 +238,6 @@
 
 	.expand-button:hover {
 		outline: 1.5px solid white;
-	}
-
-	.tides-container {
-		background-color: #313131;
 	}
 
 	.tide {

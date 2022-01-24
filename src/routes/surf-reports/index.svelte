@@ -189,7 +189,7 @@
 	}
 
 	:global(body) {
-        background-color: #1f1f1f;
+        background-color: #161616;
         transition: background-color 0.3s
     }
 
@@ -205,7 +205,7 @@
 	}
 	
 	.live-conditions {
-		background-color: #313131;
+		background-color: #2b2b2b;
 		display: grid;
 		grid-template-columns: repeat(3, 14em);
 		grid-template-rows: repeat(2, 11em);
@@ -223,7 +223,7 @@
 		max-width: 300px;
 		margin-right: 1em;
 		position: relative;
-		background-color: #313131;
+		background-color: #2b2b2b;
 		margin-bottom: 15px;
 	}
 
@@ -303,7 +303,7 @@
 	.forecast-header, .live-conditions-header {
 		font-size: 2.5em;
 		text-align: center;
-		background-color: #313131;
+		background-color: #2b2b2b;
 		padding: 0.5em;
 		margin-bottom: 0.4em;
 	}

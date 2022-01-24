@@ -64,7 +64,8 @@
     }
     
     .menu {
-		background-color: #313131;
+		/* background-color: #3B3B3B; */
+        background-color: #2b2b2b;
         margin: 200px auto 0 auto;
         padding: 1em 0;
         display: flex;
@@ -78,14 +79,17 @@
     .header {
         color: rgb(240, 234, 234);
         font-size: 2.5em;
+        font-family: Georgia;
         text-align: center;
         padding-bottom: 0.5em;
         margin: 0;
     }
     
     .region-select, .break-select {
-        background-color: rgb(28, 32, 32);
-        color: rgb(240, 234, 234);
+        background-color: #111111;
+        color: rgb(149, 0, 255);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        /* color: rgb(240, 234, 234); */
         border: none;
         /* outline: 1px solid rgb(114, 114, 114); */
         border-radius: 5px;
@@ -99,8 +103,8 @@
     }
 
     button {
-        background-color: rgb(100, 0, 172);
-        color: white;
+        background-color: #673AB7;
+        color: black;
         padding: 0.5em;
         min-height: 5vh;
         width: 60%;
