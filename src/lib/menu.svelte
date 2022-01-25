@@ -98,6 +98,7 @@
         padding: 0.5em;
         font-size: 1.5em;
         cursor: pointer;
+        transition-duration: 300ms;
     }
 
     button {
@@ -113,6 +114,7 @@
         border-radius: 5px;
         margin: 0.5em 0 0.5em 0;
         cursor: pointer;
+        transition-duration: 300ms;
     }
 
     button:hover, .region-select:hover, .break-select:hover {

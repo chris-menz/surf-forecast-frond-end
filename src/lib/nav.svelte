@@ -92,6 +92,7 @@
 		background-color: transparent;
 		text-decoration: none;
 		font-family: Verdana, Geneva, Tahoma, sans-serif;
+		transition-duration: 250ms;
 	}
 
 	a:active {
@@ -119,6 +120,7 @@
 	.burger-nav-list {
 		display: none;
 		list-style: none;
+		
 	}
 	@media (max-width: 700px) {
 

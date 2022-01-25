@@ -1,9 +1,12 @@
+<svelte:head>surf report wave conditions swell wind</svelte:head>
+
 <script lang="ts">
     import Nav from '$lib/nav.svelte';
     import { _16point } from '$lib/helpers/_16point.js';
     import { onMount } from 'svelte';
     import { breaks, regions } from '$lib/helpers/breaks';
     import axios from 'axios'
+    import { fly, crossfade, fade, slide } from "svelte/transition";
 
     const endpoint = import.meta.env.VITE_HEROKUAPI + "/api/surf-sessions";
     const historical_data_endpoint = import.meta.env.HEROKUAPI + "/api/historical-data";
@@ -147,7 +150,7 @@
 
 <main>
     <Nav />
-    <div class="container">
+    <div class="container" in:fade="{{ duration: 250 }}">
         <div class="log-new-session-container">
             <div class="log-session-header header">Log a Session</div>
                 <div class="new-session-form">
@@ -296,6 +299,7 @@
         padding: 0.3em;
         border-radius: 5px;
         cursor: pointer;
+        transition-duration: 300ms;
     }
 
     select:defined {
@@ -338,6 +342,7 @@
         border: none;
         outline: none;
         cursor: pointer;
+        transition-duration: 300ms;
     }
 
     .btn-disabled-error {
@@ -387,6 +392,7 @@
         border: none;
         outline: none;
         cursor: pointer;
+        transition-duration: 300ms;
     }
 
 

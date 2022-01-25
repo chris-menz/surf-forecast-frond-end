@@ -1,3 +1,5 @@
+<svelte:head>surf report wave conditions swell wind surf session log</svelte:head>
+
 <script lang="ts">
     import Nav from "$lib/nav.svelte";
     import axios from "axios"
@@ -11,6 +13,7 @@
 	import Waves from "$lib/waves.svelte"
 	import Weather from "$lib/weather.svelte"
 	import Menu from "$lib/menu.svelte";
+	import { fly, crossfade, fade, slide } from "svelte/transition";
 	
 	const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
 
@@ -76,17 +79,17 @@
 <main>
     <Nav />
     {#if !has_searched && !is_searching}
-		<div class="menu-container">
+		<div class="menu-container" transition:fly="{{ duration: 200 }}">
 			<Menu on:breakChange={e => {region = e.detail.region; surf_break_name = e.detail.surf_break; handleBreakChange()}}/>
 		</div>
 	{/if}
 
 	{#if is_searching}
-		<div class="loading">Loading Surf Data...</div>
+		<div class="loading" >Loading Surf Data...</div>
 	{/if}
 
 	{#if has_searched}
-		<div class="conditions-container">
+		<div class="conditions-container" in:slide="{{ duration: 300 }}">
 
 			<div class="conditions-header">
 				<div class="break-name">
@@ -97,7 +100,7 @@
 				</div>
 				<div class="header-menu">
 
-                    <select class="region-select-header" bind:value={region} on:change={() => {surf_break_names = breaks.filter(surfBreak => surfBreak.region == region).map(surfBreak => surfBreak.break_name).sort(); has_selected_region = true}}>
+                    <select class="region-select-header" bind:value={region} on:change={() => {surf_break_names = breaks.filter(surfBreak => surfBreak.region == region).map(surfBreak => surfBreak.break_name).sort(); has_selected_region = true; surf_break_name = undefined}}>
 						<option value="" disabled selected>Select Region</option>
 						{#each regions as region_option}
 							<option value="{region_option}">{region_option}</option>
@@ -265,6 +268,7 @@
 		border: none;
 		border-radius: 5px;
 		cursor: pointer;
+		transition-duration: 300ms;
     }
 
 	.break-select-header {
@@ -284,6 +288,7 @@
         border-radius: 5px;
         margin: 0 0 0.5em 0;
         cursor: pointer;
+		transition-duration: 300ms;
     }
 
 	.search-button:hover, .region-select-header:hover, .break-select-header:hover {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { slide } from "svelte/transition";
+	import { fly, slide } from "svelte/transition";
 	import { onMount } from "svelte";
 	import {_16point} from "$lib/helpers/_16point"
 
@@ -134,9 +134,9 @@
 	</div>
 	{#if isOpen}
 		
-		<div class="expanded-table table">
+		<div class="expanded-table table" transition:slide="{{ duration: 400 }}">
 			
-			<table transition:slide>
+			<table >
 				<tr>
 					<th></th>
 					<th>Swell</th>
@@ -238,6 +238,7 @@
         border: none;
         border-radius: 5px;
 		cursor: pointer;
+		transition-duration: 300ms;
 	}
 
 	.expand-button:hover {
