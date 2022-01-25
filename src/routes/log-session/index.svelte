@@ -331,7 +331,7 @@
         text-align: center;
         font-family: Verdana;
         font-size: 1em;
-        color: black;
+        color: rgb(240, 234, 234);
         max-width: 75%;
         padding: 0.5em;
         border-radius: 5px;
@@ -379,7 +379,7 @@
 
     .delete-btn {
         background-color: #6e38cc;
-        color: black;
+        color: rgb(240, 234, 234);
         font-family: Verdana;
         margin: 0.4em 0;
         padding: 0.5em;

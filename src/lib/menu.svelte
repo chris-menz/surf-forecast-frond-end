@@ -13,7 +13,7 @@
     let displayErrorMustSelect = false
 
     function handleRegionChange(selected) {
-        surf_break_names = breaks.filter(surfBreak => surfBreak.region == selected).map(surfBreak => surfBreak.break_name); 
+        surf_break_names = breaks.filter(surfBreak => surfBreak.region == selected).map(surfBreak => surfBreak.break_name).sort(); 
         has_selected_region = true
     }
 </script>
@@ -102,7 +102,7 @@
 
     button {
         background-color: #6e38cc;
-        color: black;
+        color: rgb(240, 234, 234);
         padding: 0.5em;
         min-height: 5vh;
         width: 60%;

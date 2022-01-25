@@ -230,7 +230,7 @@
 		margin: 1em auto;
 		padding: 0.5em;
 		background-color: #6e38cc;
-        color: black;
+        color: rgb(240, 234, 234);
 		font-family: verdana;
 		width: 60%;
 		text-align: center;

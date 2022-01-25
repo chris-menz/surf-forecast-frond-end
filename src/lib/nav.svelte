@@ -113,7 +113,7 @@
 	}
 
 	.logo a, .logo a:visited {
-		color: rgb(235, 235, 235);
+		color: rgb(240, 234, 234);
 	}
 
 	.burger-nav-list {

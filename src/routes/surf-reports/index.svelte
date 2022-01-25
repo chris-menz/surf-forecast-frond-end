@@ -68,6 +68,9 @@
 		hour = d.getUTCHours();
 		has_searched = true;
 		is_searching = false;
+		
+		has_selected_region = true;
+		surf_break_names = breaks.filter(surfBreak => surfBreak.region == region).map(surfBreak => surfBreak.break_name).sort();
 	}
 </script>
 
@@ -95,10 +98,10 @@
 				</div>
 				<div class="header-menu">
 
-                    <select class="region-select-header" bind:value={region} on:change={() => {surf_break_names = breaks.filter(surfBreak => surfBreak.region == region).map(surfBreak => surfBreak.break_name); has_selected_region = true}}>
+                    <select class="region-select-header" bind:value={region} on:change={() => {surf_break_names = breaks.filter(surfBreak => surfBreak.region == region).map(surfBreak => surfBreak.break_name).sort(); has_selected_region = true}}>
 						<option value="" disabled selected>Select Region</option>
-						{#each regions as region}
-							<option value="{region}">{region}</option>
+						{#each regions as region_option}
+							<option value="{region_option}">{region_option}</option>
 						{/each}
 					</select>
 					
@@ -175,8 +178,8 @@
 						</div>
 					{/if}
 				</div>
-			</div>
-		
+
+		</div>
 	{/if}
 </main>
 
@@ -193,6 +196,7 @@
         transition: background-color 0.3s
     }
 
+
 	/* conditions styles */
 
     .conditions-container {
@@ -202,6 +206,7 @@
 		color: #f0f0f0;
 		display: flex;
 		align-items: flex-start;
+		justify-content: center;
 	}
 	
 	.live-conditions {
@@ -251,7 +256,7 @@
 	}
 
 	.region-select-header, .break-select-header {
-        background-color: rgb(28, 32, 32);
+        background-color: #111111;
         color: rgb(240, 234, 234);
         width: 100%;
         padding: 6px;
@@ -269,7 +274,7 @@
 
 	.search-button {
         background-color: #6e38cc;
-        color: black;
+        color: rgb(240, 234, 234);
         padding: 0.5em;
         min-height: 5vh;
         width: 75%;
