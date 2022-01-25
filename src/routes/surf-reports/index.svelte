@@ -89,7 +89,7 @@
 	{/if}
 
 	{#if has_searched}
-		<div class="conditions-container" in:slide="{{ duration: 300 }}">
+		<div class="conditions-container" in:fly="{{ duration: 250 }}">
 
 			<div class="conditions-header">
 				<div class="break-name">
@@ -342,7 +342,7 @@
 	@media (max-width: 500px) {
 		.conditions-container {
 			max-width: 90vw;
-			margin: 6em auto 0 auto;
+			margin: 3em auto 0 auto;
 			flex-direction: column;
 		}
 
@@ -427,7 +427,7 @@
 
 		.conditions-container {
 			max-width: 90vw;
-			margin: 6em auto 0 auto;
+			margin: 3em auto 0 auto;
 			flex-direction: column;
 		}
 

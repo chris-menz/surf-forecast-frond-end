@@ -1,4 +1,4 @@
-<svelte:head>surf report wave conditions swell wind</svelte:head>
+<svelte:head>surf report wave conditions swell wind surf session log</svelte:head>
 
 <script lang="ts">
     import Nav from '$lib/nav.svelte';
@@ -267,7 +267,7 @@
     }
 
     .container {
-        margin: 6em 0 0 0;
+        margin: 4em 0 0 0;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -399,11 +399,15 @@
     @media (max-width: 1000px) {
         .container {
             flex-direction: column;
-            margin: 6em auto;
+            margin: 4em auto;
         }
 
         .my-sessions-container {
             margin-top: 1.5em;
+        }
+
+        .surf-session-container {
+            width: 60vw;
         }
     }
 

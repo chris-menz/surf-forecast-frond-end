@@ -15,12 +15,12 @@
 		<ul class="nav-list">
 			<li><a href="/surf-reports">Surf Reports</a></li>
 			<li><a href="/log-session">Sessions</a></li>
-			<li><a href="/new-to-surfing">New to Surfing?</a></li>
+			<!-- <li><a href="/new-to-surfing">New to Surfing?</a></li> -->
 		</ul>
 		<ul class="burger-nav-list" style="display: {open ? "flex" : "none"}">
 			<li><a href="/surf-reports">Surf Reports</a></li>
 			<li><a href="/log-session">Sessions</a></li>
-			<li><a href="/new-to-surfing">New to Surfing?</a></li>
+			<!-- <li><a href="/new-to-surfing">New to Surfing?</a></li> -->
 		</ul>
 	</nav>
 </main>

@@ -1,5 +1,8 @@
+<svelte:head>surf report wave conditions swell wind surf session log</svelte:head>
+
 <script>
     import Nav from "$lib/nav.svelte";
+    import { fly, crossfade, fade, slide } from "svelte/transition";
 </script>
 
 <main>
@@ -11,8 +14,7 @@
         <div>How to Pick the Correct Surfboard</div>
         <p></p>
         <div>How to Pick a Surf Spot</div>
-        <p>
-        </p>
+        <p></p>
     </div>
 </main>
 
