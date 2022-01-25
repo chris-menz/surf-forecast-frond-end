@@ -187,6 +187,10 @@
 		text-align: center;
 	}
 
+	main {
+		margin: 0 1em 0 0;
+	}
+
 	th {
 		font-size: 1em;
 		font-family: Verdana;
@@ -202,6 +206,10 @@
 	}
 	
 	.small-table table{
+		border-top: 2px solid grey;
+	}
+
+	.expanded-table {
 		border-top: 2px solid grey;
 	}
 

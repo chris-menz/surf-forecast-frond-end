@@ -165,17 +165,11 @@
 					{#if !is_searching}
 						<div class="forecast-comps-container">
 							<DailyForecast days_ahead=0 {conditions} {time_zone_offset} {wwo_data}/>
-							<span class="divider"></span>
 							<DailyForecast days_ahead=1 {conditions} {time_zone_offset} {wwo_data}/>
-							<span class="divider"></span>
 							<DailyForecast days_ahead=2 {conditions} {time_zone_offset} {wwo_data}/>
-							<span class="divider"></span>
 							<DailyForecast days_ahead=3 {conditions} {time_zone_offset} {wwo_data}/>
-							<span class="divider"></span>
 							<DailyForecast days_ahead=4 {conditions} {time_zone_offset} {wwo_data}/>
-							<span class="divider"></span>
 							<DailyForecast days_ahead=5 {conditions} {time_zone_offset} {wwo_data}/>
-							<span class="divider"></span>
 							<DailyForecast days_ahead=6 {conditions} {time_zone_offset} {wwo_data}/>
 						</div>
 					{/if}
@@ -327,10 +321,6 @@
 		overflow-y: scroll;
 	}
 
-	.divider {
-		border-left: 2px solid grey;
-		height: 399px;
-	}
 
 	.loading {
 		font-size: 2em;

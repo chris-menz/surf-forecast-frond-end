@@ -2,7 +2,6 @@ export const regions = [
   "CA - San Diego South",
   "New Hampshire",
   "Massachusetts",
-  "MA - Cape Cod",
   "Maine",
   "Rhode Island",
 ].sort();
