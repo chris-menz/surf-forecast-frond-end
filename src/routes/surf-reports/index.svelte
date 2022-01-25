@@ -12,7 +12,7 @@
 	import Weather from "$lib/weather.svelte"
 	import Menu from "$lib/menu.svelte";
 	
-	const endpoint = import.meta.env.VITE_API_URL + '/api'
+	const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
 
 	// api responses
 	let conditions: Object[];

@@ -1,12 +1,10 @@
 <script>
 	import Nav from "$lib/nav.svelte";
 	import { onMount } from 'svelte';
-	let x = import.meta.env.VITE_HEROKUAPI;
 </script>
 
 <main>
 	<Nav />
-	<div>{x}</div>
 </main>
 
 <style>
@@ -22,7 +20,4 @@
 		background-color: #121212;
     }
 
-	div {
-		font-size: 10em;
-	}
 </style>

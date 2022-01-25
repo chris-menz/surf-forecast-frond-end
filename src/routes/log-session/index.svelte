@@ -5,8 +5,8 @@
     import { breaks, regions } from '$lib/helpers/breaks';
     import axios from 'axios'
 
-    const endpoint = import.meta.env.VITE_API_URL + "/api/surf-sessions";
-    const historical_data_endpoint = import.meta.env.VITE_API_URL + "/api/historical-data";
+    const endpoint = import.meta.env.VITE_HEROKUAPI + "/api/surf-sessions";
+    const historical_data_endpoint = import.meta.env.HEROKUAPI + "/api/historical-data";
 
     // prevents user from getting conditions without inputting all parameters
     let isDisabled = true;
