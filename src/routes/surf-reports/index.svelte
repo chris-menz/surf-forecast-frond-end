@@ -79,7 +79,7 @@
 <main>
     <Nav />
     {#if !has_searched && !is_searching}
-		<div class="menu-container" transition:fly="{{ duration: 200 }}">
+		<div class="menu-container" in:fly="{{ duration: 200 }}">
 			<Menu on:breakChange={e => {region = e.detail.region; surf_break_name = e.detail.surf_break; handleBreakChange()}}/>
 		</div>
 	{/if}
