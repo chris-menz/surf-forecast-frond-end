@@ -54,7 +54,6 @@
 
 		const conditions_response = await axios.get(`${endpoint}/conditions${latlngString}`);
 		conditions = conditionsParser(conditions_response);
-		console.log(conditions);
 		
 		const weather_response = await axios.get(`${endpoint}/weather${latlngString}`);
 		weather = weather_response.data;
@@ -241,7 +240,7 @@
 
 	.break-location {
 		font-size: 1.5em;
-		padding: 0rem 0rem 1rem 1rem;
+		padding: 0rem 1rem 0.5rem 1rem;
 	}
 
 	.header-menu {
@@ -325,6 +324,7 @@
 
 	.divider {
 		border-left: 2px solid grey;
+		height: 399px;
 	}
 
 	.loading {
