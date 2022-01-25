@@ -31,7 +31,7 @@
         </select>
 
         <select class="break-select" bind:value={surf_break}>
-            <option value="" disabled selected>Select Break</option>
+            <option value="" disabled selected>Select Surf Spot</option>
             {#if has_selected_region}
                 {#each surf_break_names as break_option}
                     <option value="{break_option}">{break_option}</option>

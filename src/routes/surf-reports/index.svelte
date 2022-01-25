@@ -108,7 +108,7 @@
 					</select>
 					
                     <select class="break-select-header" bind:value={surf_break_name}>
-						<option value="" disabled selected>Select a Break</option>
+						<option value="" disabled selected>Select Surf Spot</option>
 						{#if has_selected_region}
 							{#each surf_break_names as break_option}
 								<option value="{break_option}">{break_option}</option>
@@ -342,7 +342,7 @@
 	@media (max-width: 500px) {
 		.conditions-container {
 			max-width: 90vw;
-			margin: 3em auto 0 auto;
+			margin: 4em auto 0 auto;
 			flex-direction: column;
 		}
 
@@ -427,7 +427,7 @@
 
 		.conditions-container {
 			max-width: 90vw;
-			margin: 3em auto 0 auto;
+			margin: 4em auto 0 auto;
 			flex-direction: column;
 		}
 
