@@ -10,7 +10,7 @@
 
 
     const endpoint = import.meta.env.VITE_HEROKUAPI + "/api/surf-sessions";
-    const historical_data_endpoint = import.meta.env.HEROKUAPI + "/api/historical-data";
+    const historical_data_endpoint = import.meta.env.VITE_HEROKUAPI + "/api/historical-data";
 
     // prevents user from getting conditions without inputting all parameters
     let isDisabled = true;
