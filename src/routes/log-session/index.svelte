@@ -8,6 +8,7 @@
     import axios from 'axios'
     import { fly, crossfade, fade, slide } from "svelte/transition";
 
+
     const endpoint = import.meta.env.VITE_HEROKUAPI + "/api/surf-sessions";
     const historical_data_endpoint = import.meta.env.HEROKUAPI + "/api/historical-data";
 
