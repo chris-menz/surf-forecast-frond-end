@@ -87,7 +87,7 @@
     
     .region-select, .break-select {
         background-color: #111111;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-family: Verdana, sans-serif;
         color: rgb(240, 234, 234);
         border: none;
         border-radius: 5px;
@@ -130,10 +130,23 @@
         color: white;
     }
     
+    @media (max-width: 1252px) {
+        
+        .menu {
+            padding: 1.5em;
+        }
+
+        .break-select, .region-select {
+            font-size: 1.3em;
+            width: 85%;
+        }
+    }
+    
     @media (max-width: 1100px) {
         .menu {
             max-width: 35vw;
             min-height: 22vh;
+            padding: 1em;
         }
 
         .header {
@@ -145,6 +158,13 @@
         .header {
             font-size: 2em;
         }
+    }
+
+    @media (max-width: 900px) {
+        .menu {
+            max-width: 50vw;
+        }
+
     }
     
     @media (max-width: 700px) {
@@ -159,6 +179,8 @@
 
         .break-select, .region-select {
             font-size: 1.3em;
+            font-family: Roboto;
+            width: 90%;
         }
     }
 
