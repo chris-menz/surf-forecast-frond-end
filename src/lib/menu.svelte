@@ -182,6 +182,10 @@
             font-family: Roboto;
             width: 90%;
         }
+
+        button {
+            width: 70%;
+        }
     }
 
     @media (max-width: 500px) {
