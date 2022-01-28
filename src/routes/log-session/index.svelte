@@ -332,7 +332,8 @@
     }
 
     .get-conditions-btn, .add-session-btn {
-        background-color: #6e38cc;
+        /* background-color: #6e38cc; */
+        background-image: linear-gradient(to right bottom, #6a37c2, #49329e);
         text-align: center;
         font-family: Verdana;
         font-size: 1em;
@@ -384,7 +385,8 @@
    }
 
     .delete-btn {
-        background-color: #6e38cc;
+        /* background-color: #6e38cc; */
+        background-image: linear-gradient(to right bottom, #6a37c2, #49329e);
         color: rgb(240, 234, 234);
         font-family: Verdana;
         margin: 0.4em 0;

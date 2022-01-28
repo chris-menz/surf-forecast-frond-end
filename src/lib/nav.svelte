@@ -39,7 +39,8 @@
 		top: 0;
 		left: 0;
 		z-index: 999;
-		background-color: #6e38cc;
+		background-image: linear-gradient(to right bottom, #6a37c2, #49329e);
+		/* background-color: #6e38cc; */
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -101,9 +102,8 @@
 
 
 	.nav-list a:hover, .burger-nav-list a:hover {
-		/* outline: 1.5px solid white; */
-		/* border-radius: 5px; */
-		background-color: rgb(71, 0, 138);
+		border-radius: 5px;
+		background-color: rgba(10, 5, 39, 0.336);
 		text-decoration: none;
 	}
 	

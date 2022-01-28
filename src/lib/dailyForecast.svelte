@@ -237,7 +237,8 @@
 	.expand-button {
 		margin: 1em auto;
 		padding: 0.5em;
-		background-color: #6e38cc;
+		/* background-color: #6e38cc; */
+		background-image: linear-gradient(to right bottom, #6a37c2, #49329e);
         color: rgb(240, 234, 234);
 		font-family: verdana;
 		width: 60%;
