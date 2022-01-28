@@ -61,13 +61,13 @@
     *, *::before, *::after {
         box-sizing: border-box;
         font-family: sans-serif;
+        margin: 0;
+        padding: 0;
     }
-    
+
     .menu {
-		/* background-color: #3B3B3B; */
         background-color: #2b2b2b;
-        margin: 160px auto 0 auto;
-        padding: 1em 0;
+        padding: 1em;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -91,11 +91,10 @@
         color: rgb(240, 234, 234);
         border: none;
         border-radius: 5px;
-        min-height: 5vh;
-        width: 75%;
+        width: 80%;
         text-align: center;
         margin-bottom: 0.5em;
-        padding: 0.5em;
+        padding: 0.5em 1.2em;
         font-size: 1.5em;
         cursor: pointer;
         transition-duration: 300ms;
@@ -143,11 +142,6 @@
     }
     
     @media (max-width: 960px) {
-        .menu {
-            margin-top: 125px;
-            max-width: 50vw;
-        }
-
         .header {
             font-size: 2em;
         }

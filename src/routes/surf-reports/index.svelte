@@ -1,5 +1,3 @@
-<svelte:head>surf report wave conditions swell wind surf session log</svelte:head>
-
 <script lang="ts">
     import Nav from "$lib/nav.svelte";
     import axios from "axios"
@@ -191,6 +189,12 @@
         background-color: #161616;
         transition: background-color 0.3s
     }
+
+	.menu-container {
+		display: grid;
+		place-content: center;
+		height: 95vh;
+	}
 
 
 	/* conditions styles */
