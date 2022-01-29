@@ -70,8 +70,8 @@
 
 	.toggle-button {
 		position: absolute;
-		top: 1em;
-		right: 1em;
+		top: 0.8em;
+		right: 0.8em;
 		display: none;
 		flex-direction: column;
 		justify-content: space-between;
@@ -124,6 +124,10 @@
 	}
 	@media (max-width: 700px) {
 
+		.logo {
+			font-size: 2em;
+		}
+		
 		.toggle-button {
 			display: flex;
 		}

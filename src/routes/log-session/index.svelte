@@ -259,9 +259,9 @@
 
     .header {
         background-color: #313131;
-        font-size: 2.5em;
+        font-size: 3em;
         font-family: Georgia;
-        padding: 0.5em;
+        padding: 0.5em 1em;
         margin: 0 0 0.5em 0;
         color: #f0f0f0;;
         text-align: center;
@@ -416,11 +416,11 @@
 
     @media (max-width: 700px) {
         .header {
-            max-width: 80vw;
+            width: 80vw;
         }
         
         .select-container {
-            width: 70vw;
+            width: 80vw;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -446,6 +446,18 @@
 
         .surf-session-container {
             width: 80vw;
+        }
+
+        @media (max-width: 500px) {
+            .header {
+                font-size: 2.5em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .header {
+                font-size: 2.2em;
+            }
         }
     }
 
