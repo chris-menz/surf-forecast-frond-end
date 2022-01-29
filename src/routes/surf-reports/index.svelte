@@ -281,7 +281,7 @@
         min-height: 5vh;
         max-width: 84%;
         text-align: center;
-        font-size: 1.3em;
+        font-size: 1.2em;
 		font-family: verdana;
         border: none;
         border-radius: 5px;
