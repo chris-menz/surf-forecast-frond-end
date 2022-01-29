@@ -339,7 +339,7 @@
         font-size: 1em;
         color: rgb(240, 234, 234);
         max-width: 75%;
-        padding: 0.5em;
+        padding: 0.5em 1em;
         border-radius: 5px;
         border: none;
         outline: none;
@@ -380,7 +380,7 @@
 
    .session-description {
        margin: 0.5em 0;
-       padding: 0.5em;
+       padding: 0.5em 1em;
        background-color: #1b1b1b;
    }
 
@@ -390,7 +390,7 @@
         color: rgb(240, 234, 234);
         font-family: Verdana;
         margin: 0.4em 0;
-        padding: 0.5em;
+        padding: 0.5em 1em;
         border-radius: 5px;
         border: none;
         outline: none;
