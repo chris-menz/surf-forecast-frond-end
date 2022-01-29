@@ -13,8 +13,8 @@
 	import Menu from "$lib/menu.svelte";
 	import { fly, crossfade, fade, slide } from "svelte/transition";
 	
-	const endpoint = "http://localhost:8080/api"
-	// const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
+	// const endpoint = "http://localhost:8080/api"
+	const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
 
 	// api responses
 	let conditions: Object[];
@@ -332,6 +332,7 @@
 		color: white;
 		text-align: center;
 		margin: 8em auto;
+		transition-duration: 250ms;
 	}
 
 	@media (max-width: 500px) {
@@ -474,6 +475,14 @@
 		.search-button {
 			font-size: 1.2em;
 		}
+
+		.search-button:hover, .region-select-header:hover, .break-select-header:hover {
+            outline: none;
+        }
+
+        .search-button:active {
+            background-color: rgba(10, 5, 39, 0.336);
+        }
 	}
 
 	@media (max-width: 450px) {
