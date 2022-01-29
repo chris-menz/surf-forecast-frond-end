@@ -13,7 +13,8 @@
 	import Menu from "$lib/menu.svelte";
 	import { fly, crossfade, fade, slide } from "svelte/transition";
 	
-	const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
+	const endpoint = "http://localhost:8080/api"
+	// const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
 
 	// api responses
 	let conditions: Object[];
@@ -200,8 +201,7 @@
 	/* conditions styles */
 
     .conditions-container {
-		margin-top: 5em;
-		margin-left: 1em;
+		margin: 5em 1em;
         position: relative;
 		color: #f0f0f0;
 		display: flex;
@@ -225,7 +225,7 @@
 	
 	.conditions-header {
 		min-width: 250px;
-		max-width: 300px;
+		max-width: 500px;
 		margin-right: 1em;
 		position: relative;
 		background-color: #2b2b2b;
@@ -277,11 +277,11 @@
         /* background-color: #6e38cc; */
 		background-image: linear-gradient(to right bottom, #6a37c2, #49329e);
         color: rgb(240, 234, 234);
-        padding: 0.5em;
+        padding: 0.5em 1em;
         min-height: 5vh;
-        width: 75%;
+        max-width: 84%;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.3em;
 		font-family: verdana;
         border: none;
         border-radius: 5px;
@@ -307,22 +307,22 @@
 	
 	.forecast {
         position: relative;
-		margin: 0 1em;
+		margin: 0 0 0 1em;
     }
 
 	.forecast-header, .live-conditions-header {
-		font-size: 2.5em;
+		font-size: 3em;
 		font-family: Georgia;
 		text-align: center;
 		background-color: #2b2b2b;
-		padding: 0.5em;
+		padding: 0.5em 1em;
 		margin-bottom: 0.4em;
 	}
 
 	.forecast-comps-container {
 		display: flex;
 		flex-direction: row;
-		max-width: 23vw;
+		max-width: 25vw;
 		overflow-y: scroll;
 	}
 
@@ -394,6 +394,10 @@
 			grid-template-columns: repeat(3, 12em);
 			grid-template-rows: repeat(2, 13em);
 		}
+
+		.search-button {
+			font-size: 1.2em;
+		}
 	}
 
 	@media (max-width: 1150px) {
@@ -416,13 +420,17 @@
 			grid-template-columns: repeat(2, 10em);
 			grid-template-rows: repeat(3, 13em);
 		}
+
+		.forecast-header, .live-conditions-header {
+			font-size: 2.2em;
+		}
 	}
 
 	@media (max-width: 800px) {
 
 		.conditions-container {
 			max-width: 90vw;
-			margin: 4em auto 0 auto;
+			margin: 5em auto 0 auto;
 			flex-direction: column;
 		}
 
@@ -463,6 +471,9 @@
 			margin-bottom: 1em;
 		}
 		
+		.search-button {
+			font-size: 1.2em;
+		}
 	}
 
 	@media (max-width: 450px) {
