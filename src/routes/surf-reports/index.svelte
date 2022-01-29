@@ -200,7 +200,7 @@
 	/* conditions styles */
 
     .conditions-container {
-		margin-top: 4em;
+		margin-top: 5em;
 		margin-left: 1em;
         position: relative;
 		color: #f0f0f0;

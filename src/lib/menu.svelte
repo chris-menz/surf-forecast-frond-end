@@ -104,9 +104,9 @@
         /* background-color: #6e38cc; */
         background-image: linear-gradient(to right bottom, #6a37c2, #49329e);
         color: rgb(240, 234, 234);
-        padding: 0.5em;
+        padding: 0.5em 1em;
         min-height: 5vh;
-        width: 60%;
+        width: 70%;
         text-align: center;
         font-size: 1.5em;
         font-family: Verdana, sans-serif;
@@ -132,13 +132,17 @@
     
     @media (max-width: 1252px) {
         
-        .menu {
+        /* .menu {
             padding: 1.5em;
-        }
+        } */
 
         .break-select, .region-select {
             font-size: 1.3em;
             width: 85%;
+        }
+
+        button {
+            font-size: 1.3em;
         }
     }
     
@@ -167,7 +171,7 @@
 
     }
     
-    @media (max-width: 700px) {
+    @media (max-width: 701px) {
         .menu {
             max-width: 60vw;
             min-height: 30vw;
@@ -185,6 +189,7 @@
 
         button {
             width: 70%;
+            font-size: 1.1em;
         }
     }
 
