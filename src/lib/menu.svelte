@@ -191,6 +191,14 @@
             width: 75%;
             font-size: 1.1em;
         }
+
+        button:hover, .region-select:hover, .break-select:hover {
+            outline: none;
+        }
+
+        button:active {
+            background-color: rgba(10, 5, 39, 0.336);
+        }
     }
 
     @media (max-width: 500px) {
