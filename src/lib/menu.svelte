@@ -188,7 +188,7 @@
         }
 
         button {
-            width: 70%;
+            width: 75%;
             font-size: 1.1em;
         }
     }
