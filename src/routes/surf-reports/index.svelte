@@ -13,8 +13,8 @@
 	import Menu from "$lib/menu.svelte";
 	import { fly, crossfade, fade, slide } from "svelte/transition";
 	
-	const endpoint = "http://localhost:8080/api"
-	// const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
+	// const endpoint = "http://localhost:8080/api"
+	const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
 
 	// api responses
 	let conditions: Object[];
