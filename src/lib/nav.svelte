@@ -70,8 +70,8 @@
 
 	.toggle-button {
 		position: absolute;
-		top: 0.8em;
-		right: 0.8em;
+		top: 0.75em;
+		right: 0.75em;
 		display: none;
 		flex-direction: column;
 		justify-content: space-between;

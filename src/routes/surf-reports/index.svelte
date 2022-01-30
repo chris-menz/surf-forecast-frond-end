@@ -13,8 +13,8 @@
 	import Menu from "$lib/menu.svelte";
 	import { fly, crossfade, fade, slide } from "svelte/transition";
 	
-	// const endpoint = "http://localhost:8080/api"
-	const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
+	const endpoint = "http://localhost:8080/api"
+	// const endpoint = import.meta.env.VITE_HEROKUAPI + '/api'
 
 	// api responses
 	let conditions: Object[];
@@ -55,7 +55,7 @@
 		const latlngString = `?lat=${lat}&lng=${lng}`;
 
 		const conditions_response = await axios.get(`${endpoint}/conditions${latlngString}`);
-		conditions = conditionsParser(conditions_response);
+		conditions = conditionsParser(conditions_response.data);
 		
 		const weather_response = await axios.get(`${endpoint}/weather${latlngString}`);
 		weather = weather_response.data;

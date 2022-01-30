@@ -1,7 +1,7 @@
 export function conditionsParser(response) {
   let conditions = [];
 
-  const conditions_data = response.data.hours;
+  const conditions_data = response.hours;
 
   for (let i = 0; i < 241; ++i) {
     conditions[i] = {
